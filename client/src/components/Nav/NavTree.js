@@ -15,18 +15,18 @@ class NavTree extends Component {
     )
   }
   getTree(treeData) {
-    console.log(treeData)
     if (treeData) {
       return this.createTreeDom(treeData)
     }
     return <div>获取数据为空</div>
   }
   createTreeDom(treeData) {
+    console.log(treeData)
     return arr(treeData).map(item => {
       return (
-        <div>
-          <div>{item.name}</div>
-          {/* {item.children ? this.createTreeDom(item.children) : null} */}
+        <div  key={item.id}>
+          <div>{item.filename}</div>
+          {item.child ? this.createTreeDom(item.child) : null}
         </div>
       )
     })

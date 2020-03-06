@@ -17,7 +17,7 @@ module.exports = merge(common, {
     hot: true,
     overlay: false,
     proxy: {
-      '/getTree': {
+      '/api': {
         target: 'http://localhost:3000/',
         // 替换请求头部信息（跨域）
         changeOrigin: true

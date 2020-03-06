@@ -77,7 +77,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './index.html',
+      template: './client/index.html',
       minify: {
         collapseWhitespace: true
       },
