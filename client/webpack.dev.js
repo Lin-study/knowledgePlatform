@@ -15,7 +15,14 @@ module.exports = merge(common, {
   devServer: {
     port: 9000,
     hot: true,
-    overlay: false
+    overlay: false,
+    proxy: {
+      '/getTree': {
+        target: 'http://localhost:3000/',
+        // 替换请求头部信息（跨域）
+        changeOrigin: true
+      }
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

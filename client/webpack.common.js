@@ -1,9 +1,14 @@
 const config = require('./config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   entry: {
-    app: './src'
+    app: './client/src'
   },
   output: {
     path: config.build.assetsRoot, // 输入路径
@@ -78,5 +83,11 @@ module.exports = {
       },
       inject: true,
     }),
-  ]
+  ],
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      'api': resolve('src/api')
+    }
+  }
 }
