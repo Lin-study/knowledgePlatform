@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const getdir = function (dir, list = []) {
+const getdir = (dir, list = []) => {
   var files = fs.readdirSync(dir);
   files.forEach(function (filename) {
     var filePath = path.join(dir, filename);
@@ -20,6 +20,11 @@ const getdir = function (dir, list = []) {
   return list
 }
 
+const getBook = (bookPath) => {
+  return fs.readFileSync(bookPath)
+}
+
 module.exports = {
-  getdir
+  getdir,
+  getBook
 }
